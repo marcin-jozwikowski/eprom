@@ -44,8 +44,6 @@ char dataPins[8] = {
 byte inByte = 0;
 unsigned int secH = 0, secL = 0;
 
-unsigned int slowDown = 1;
-
 void setup()
 {
   pinMode(programPin, OUTPUT);
@@ -155,9 +153,9 @@ void programByte(byte Data)
 {
   setData(Data);
   //Vpp pulse
-  delayMicroseconds(4 * slowDown);
+  delayMicroseconds(4);
   digitalWrite(enablePin, LOW);
-  delayMicroseconds(60 * slowDown);
+  delayMicroseconds(60);
   digitalWrite(enablePin, HIGH);
 }
 
